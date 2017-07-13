@@ -30,13 +30,14 @@ body,html{
 .slider-img-box{
     width: 5900px;
     height: 100%;
+    transition: all 1s ease-in-out;
 }
 .slider-img-box img{
     display: block;
     float: left;
     width: 1180px;
 }
-.slider-left,.slider-right{
+#sliderLeft,#sliderRight{
     position: absolute;
     width: 25px;
     height: 50px;
@@ -45,19 +46,19 @@ body,html{
     opacity: 0;
     transition: opacity .3s;
 }
-.wrapper:hover .slider-left{
+.wrapper:hover #sliderLeft{
     opacity: .9;
 }
-.wrapper:hover .slider-right{
+.wrapper:hover #sliderRight{
     opacity: .9;
 }
-.slider-right{
+#sliderRight{
     left: 0;
 }
-.slider-left{
+#sliderLeft{
     right: 0;
 }
-.dot-nav{
+#dotNav{
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -70,16 +71,16 @@ body,html{
     background-color: rgba(0,0,0,.15);
     transition: opacity .3s;
 }
-.wrapper:hover .dot-nav{
+.wrapper:hover #dotNav{
     opacity: 1;
 }
-.dot-nav a{
+#dotNav a{
     display: inline-block;
     box-sizing: border-box;
     padding: 5px;
     transition: width .2s ease-in-out;
 }
-.dot-nav a span{
+#dotNav a span{
     display: block;
     width: 12px;
     height: 12px;
@@ -87,7 +88,7 @@ body,html{
     border-radius: 6px;
     transition: width .3s ease-out;
 }
-.dot-nav a.active span{
+#dotNav a.active span{
     width: 30px;
 }
 
