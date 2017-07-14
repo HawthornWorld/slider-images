@@ -20,9 +20,7 @@ window.onload = (function() {
 
     //滑动动画
     function animate(offset) {
-        if (offset === 0) {
-            return;
-        }
+        if (offset === 0) return;
         animated = true;
         var time = 300;
         var inteval = 10;
@@ -61,7 +59,7 @@ window.onload = (function() {
         //自动轮播
         function play() {
             timer = setTimeout(function () {
-                btnRight.onclick();
+                btnAnimate();
                 play();
             }, interval);
         }
@@ -72,7 +70,8 @@ window.onload = (function() {
         }
 
         //点击右箭头，向左移动
-        btnRight.onclick = function () {
+        btnRight.onclick = btnAnimate;
+        function btnAnimate() {
             if (animated) {
                 return;
             }
