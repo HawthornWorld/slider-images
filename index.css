@@ -28,8 +28,9 @@ body,html{
     overflow: hidden;
 }
 .slider-img-box{
-    width: 5900px;
+    width: 8260px;
     height: 100%;
+    margin-left: -1180px;
     transition: all 1s ease-in-out;
 }
 .slider-img-box img{
