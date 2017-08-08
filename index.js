@@ -20,36 +20,39 @@ window.onload = (function() {
 
     //滑动动画
     function animate(offset) {
-        if (offset === 0) return;
+        if (offset === 0){
+            return;
+        }
         animated = true;
         var time = 300;
         var inteval = 10;
-        var speed = offset / (time / inteval);
-        var marginLeft = parseInt(box.style.marginLeft) + offset;
+        var speed = offset/(time / inteval);
+        var left = parseInt(box.style.left) + offset;
         var go = function () {
-            if (speed > 0 && parseInt(box.style.marginLeft < marginLeft) || speed < 0 && parseInt(box.style.marginLeft > marginLeft)) {
-                box.style.marginLeft = parseInt(box.style.marginLeft) + speed + 'px';
+            if (speed > 0 && parseInt(box.style.left < left) || speed < 0 && parseInt(box.style.left > left)) {
+                box.style.left = parseInt(box.style.left) + speed + 'px';
                 setTimeout(go, inteval);
             }
             else {
-                box.style.marginLeft = marginLeft + 'px';
-                if (marginLeft > -1180) {
-                    box.style.marginLeft = -1180 * len + 'px';
+                box.style.left = left + 'px';
+                if (left > -1180) {
+                    box.style.left = -1180 * len + 'px';
                 }
-                if (marginLeft < (-1180 * len)) {
-                    box.style.marginLeft = '-1180px';
+                if (left < (-1180 * len)) {
+                    box.style.left = '-1180px';
                 }
                 animated = false;
             }
-            go();
-        };
-        // animate();
+        }
+        go();
+    }
+    // animate();
 
         //切换时拉长小圆点
         function translateDot() {
             for (var i = 0; i < dot.length; i++) {
-                if (dot[i].className === 'on') {
-                    dot[i].className = 'active';
+                if (dot[i].className === 'active') {
+                    dot[i].className = '';
                     break;
                 }
             }
@@ -59,7 +62,7 @@ window.onload = (function() {
         //自动轮播
         function play() {
             timer = setTimeout(function () {
-                btnAnimate();
+                btnRight.onclick();
                 play();
             }, interval);
         }
@@ -70,8 +73,7 @@ window.onload = (function() {
         }
 
         //点击右箭头，向左移动
-        btnRight.onclick = btnAnimate;
-        function btnAnimate() {
+        btnRight.onclick = function () {
             if (animated) {
                 return;
             }
@@ -82,7 +84,7 @@ window.onload = (function() {
             }
             translateDot();
             if (!animated) {
-                this.animate(-1180);
+                animate(-1180);
             }
         };
 
@@ -123,7 +125,6 @@ window.onload = (function() {
         wrapper.onmouseover = stop;
         wrapper.onmouseout = play;
         play();
-    }
 });
 
 

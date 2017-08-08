@@ -28,9 +28,11 @@ body,html{
     overflow: hidden;
 }
 .slider-img-box{
+    position: absolute;
     width: 8260px;
     height: 100%;
-    margin-left: -1180px;
+    /*left: -1180px;*/
+    z-index: 1;
     transition: all 1s ease-in-out;
 }
 .slider-img-box img{
@@ -40,6 +42,7 @@ body,html{
 }
 #sliderLeft,#sliderRight{
     position: absolute;
+    z-index: 2;
     width: 25px;
     height: 50px;
     top: 50%;
@@ -61,6 +64,7 @@ body,html{
 }
 #dotNav{
     position: absolute;
+    z-index: 2;
     left: 50%;
     transform: translateX(-50%);
     bottom: 10px;
@@ -79,6 +83,7 @@ body,html{
     display: inline-block;
     box-sizing: border-box;
     padding: 5px;
+    text-decoration: none;
     transition: width .2s ease-in-out;
 }
 #dotNav a span{
@@ -87,6 +92,7 @@ body,html{
     height: 12px;
     background-color: rgba(255,255,255,.5);
     border-radius: 6px;
+    text-decoration: none;
     transition: width .3s ease-out;
 }
 #dotNav a.active span{
